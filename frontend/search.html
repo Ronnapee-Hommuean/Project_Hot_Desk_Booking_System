@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking System</title>
+    <link rel="stylesheet" href="CSS.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+</head>
+<body class="flex">
+    <div class="headerB">
+        <a href="edit-delete.html"><button class="buttonUp">ไปแก้ไข</button></a>
+        <a href="booking.html"><button class="buttonUp">กลับ</button></a>
+        <span>จองที่นั่งสำนักงาน </span>
+    </div>
+
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="../frontend/assets/16381074-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+    
+    <div class = "body flex">
+        <div class="display">
+            <br>
+            <div class="container flex">
+                <div class="header"><label >เช็ควันที่ถูกจอง</label></div>
+                    <div class="grid">
+                        <input class="form" id="date" type="date" placeholder="กรุณากรอกรหัสสินค้าของคุณ"></input>
+                        <button class="button" onclick="searchingData()">search</button>
+                    </div>
+                    
+               
+                <div id="message" class="hidden"></div>
+                <div id="information" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="load-footer"></div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="search.js"></script>
+  
+   
+</body>
+</html>

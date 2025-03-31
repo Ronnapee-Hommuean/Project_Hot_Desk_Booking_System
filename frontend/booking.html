@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="CSS.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+</head>
+<body>
+    <div class="headerB">
+       <a href="edit-delete.html"><button class="buttonUp">ไปแก้ไข</button></a>
+       <a href="search.html"><button class="buttonUp">ค้นหา</button></a>
+        <span>จองที่นั่งสำนักงาน </span>
+    </div>
+    
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="../frontend/assets/16381074-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+    
+
+    <div class="padding">
+        <div class="container">
+    
+            <div class="padding">
+                <div class="column"><div>
+                        <br><br><br>
+                        <img src="../frontend/assets/11-Photoroom.png" class="img" width="100%" height="auto">
+                    </div>
+                    <div>
+                        <div class="header">จองที่นั่งสำนักงาน</div>
+                        <div>
+                            <div class="textinput">ชื่อ</div>
+                            <input class="form" name="firstname" type="text">
+                        </div>
+                        <div>
+                            <div class="textinput">นามสกุล</div>
+                            <input class="form" name="lastname" type="text">
+                        </div>
+                        <div>
+                            <div class="textinput">gmail</div>
+                            <input class="form" name="gmail" type="text">
+                        </div>
+                        <div>
+                            <div class="textinput">หมายเลขโต๊ะ</div>
+                            <input class="form" name="noTable" type="number">
+                        </div>
+    
+                        <div>
+                            <div class="textinput">ระบุวันที่ต้องการจอง</div>
+                            <input class="form" name="date" type="date">
+                        </div>
+                        <br>
+                        <button onclick="submitData()" class="buttonUp2">จอง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="booking.js"></script>
+</body>
+</html>
