@@ -31,29 +31,29 @@ const loadData = async () => {
         const dateDOM = new Date(user.date).toLocaleDateString('en-GB')
         htmlData += `
         <tr class="background2">
-            <td>
+            <td data-label="ID">
                 ${user.employeeID} 
             </td>
-            <td>
+            <td data-label="Firstname">
                  ${user.firstname}
             </td>
-            <td>
+            <td data-label="Lastname">
                  ${user.lastname}
             </td>
-            <td>
+            <td data-label="Gmail">
                  ${user.gmail}
             </td>
-            <td>
+            <td data-label="Date">
                  ${dateDOM}
             </td>
-            <td>
+            <td data-label="No.Table">
                 ${user.noTable}
             </td>
             <td>
                 <a href = 'edit.html?id=${user.employeeID}'><button class ='button '>Edit</button></a>
             </td>
             <td>
-                <button class='delete button button2'  data-id = '${user.employeeID}'>Delete</button>
+                <button class='delete button'  data-id = '${user.employeeID}'>Delete</button>
             </td>
         </tr>`
 

@@ -42,7 +42,7 @@ body {
     color: black;
     margin-top: 10px; /* ปรับระยะห่าง */
     gap: 10px; /* ระยะห่างระหว่างปุ่ม */
-
+    width: 100%;
 
 }
 .button:hover {
@@ -112,6 +112,7 @@ input.form, textarea{
     max-width: 800px;
     margin-left: auto;
     margin-right: auto; 
+    overflow: auto;
 }
 
 .headerB {
@@ -128,10 +129,12 @@ input.form, textarea{
 }
 
 
+
 table{;
     width: 100%;
     font-size: 18px;
     border-collapse: collapse;//รวมเส้นขอบของตาราง
+    
 }
 
 th{  
@@ -321,3 +324,33 @@ tr,td{
     transform: translateX(0);
     opacity: 1;
 }
+
+@media screen and (max-width: 1024px){
+    table,thead,tbody,th,td,tr {
+        display: block;
+      }
+    
+      th {
+        display: none;
+        /* ซ่อนหัวตาราง */
+      }
+    
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+    
+      td a {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }

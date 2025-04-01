@@ -43,12 +43,12 @@ const searchingData = async () => {
             let tableStatus = user.status == 0 ? "ว่าง" : "ไม่ว่าง";
             htmlData += `                             
                                     <tr class="background2">
-                                        <td>${user.employeeID}</td> 
-                                        <td>${user.firstname}</td> 
-                                        <td>${user.lastname}</td> 
-                                        <td>${tableStatus}</td>
-                                        <td>${user.noTable}</td>
-                                        <td>${date}</td>
+                                        <td data-label="ID">${user.employeeID}</td> 
+                                        <td data-label="firstname">${user.firstname}</td> 
+                                        <td data-label="lastname">${user.lastname}</td> 
+                                        <td data-label="status">${tableStatus}</td>
+                                        <td data-label="No.Table">${user.noTable}</td>
+                                        <td data-label="Date">${date}</td>
                                     </tr>`;
         }
 
