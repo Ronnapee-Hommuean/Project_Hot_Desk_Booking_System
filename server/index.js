@@ -135,7 +135,7 @@ app.post('/booking', async (req, res) => {
 
 
 
-        // ✅ บันทึกข้อมูลลงฐานข้อมูล
+        // บันทึกข้อมูลลงฐานข้อมูล
         const results = await conn.query('INSERT INTO booking SET ?', user);
         res.json({
             message: 'Create user successfully',
@@ -175,6 +175,7 @@ app.put('/booking/:employeeID',async (req, res) => {
     
   });
 
+//path = DELETE /users/:id สำหรับลบ users ที่มี id
 app.delete('/booking/:employeeID', async(req, res) => {
     try {
       let id = req.params.employeeID;

@@ -33,13 +33,13 @@ body {
 
 
 .button {
-    padding: 10px 20px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
     font-size: 18px;
     background-image: radial-gradient( white, pink);
     border: 2px black solid;
     color: blue;
-    border-radius: 20px;
-
+    border-radius: 10px;
     cursor: pointer;
     color: black;
     margin-top: 10px; /* ปรับระยะห่าง */
@@ -221,7 +221,7 @@ th{
 
 tr,td{
     border: 3px solid black;
-    background-color: rgba(232, 232, 232,0); /* สีพื้นหลังที่มีความโปร่งใส */
+    background-color: rgba(232, 232, 232,0); //สีพื้นหลังที่มีความโปร่งใส 
     padding: 10px;
     text-align: center;
     word-wrap: break-word;//ข้อความที่เกินจะขึ้นบรรทัดใหม่
@@ -231,7 +231,7 @@ tr,td{
 
 .background{
     color: white;
-    background-color: rgba(0, 0, 0, 1); /* สีพื้นหลังที่มีความโปร่งใส */
+    background-color: rgba(0, 0, 0, 1); 
 }
 
 
@@ -242,7 +242,7 @@ tr,td{
 }
 
 .background2:hover {
-    background-color:#fcef64; /* สีพื้นหลังที่มีความโปร่งใส */
+    background-color:#fcef64;
 }
 
 .title {
@@ -351,4 +351,53 @@ tr,td{
 
 .buttonC:active {
     transform: scale(0.95);
+}
+
+
+
+.btn {
+    border-radius: 8px;
+    padding: 10px 30px;
+    background: lightgreen;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: all 0.5s linear;
+    color: black;
+    float: right;
+}
+
+.btn:hover {
+    background: green;
+    border-radius: 8px;
+    scale: 1.1;
+}
+
+.btn::after{
+    content: '';
+    background: radial-gradient(#F3F520,lightgreen);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    border-radius: 8px;
+    inset: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;    
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+
+.four::after {
+    transition: all 0.5s linear;
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.four:hover::after {
+    transform: translateX(0);
+    opacity: 1;
 }

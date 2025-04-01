@@ -5,7 +5,6 @@ window.onload = async () => {
 }
 
 const loadData = async () => {
-    console.log('user page loaded');
     //1. load user.js ทั้งหมด จาก api ที่เตรียมไว้
     const response = await axios.get(`${BASE_URL}/booking`);
     console.log(response.data);
@@ -51,7 +50,7 @@ const loadData = async () => {
                 ${user.noTable}
             </td>
             <td>
-                <a href = 'edit.html?id=${user.employeeID}'><button class ='button button3'>Edit</button></a>
+                <a href = 'edit.html?id=${user.employeeID}'><button class ='button '>Edit</button></a>
             </td>
             <td>
                 <button class='delete button button2'  data-id = '${user.employeeID}'>Delete</button>
