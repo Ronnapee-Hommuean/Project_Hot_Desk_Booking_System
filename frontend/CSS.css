@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Kanit';
+    src: url('../Kanit/Kanit-Regular.ttf');
+}
+
+body {
+    font-family: 'Kanit';
+    font-weight: bold;
+}
+
 .container {
     position: center;
     //top: 50%;
@@ -79,6 +89,7 @@
 .buttonUp2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
 .header {
     color: white;
     font-size: 30px;
@@ -86,6 +97,7 @@
     margin-bottom: 20px;
     text-shadow: 6px 6px 5px #000000;
 }
+
 .textinput {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -165,17 +177,20 @@ input.form, textarea{
     
     
 }
+
 .headerB {
     display: flex;
     align-items: center;
     justify-content: flex-start; /* จัดให้เรียงจากซ้ายไปขวา */
     gap: 10px; /* ระยะห่างระหว่างปุ่มกับข้อความ */
-    background: linear-gradient(to bottom, #5e3719, #211f2f);
+    background: #696eff ;
     color: white;
+    padding:8px 16px;
     font-size: 24px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .flex-container {
     display: flex;
     gap: 10px; /* ระยะห่างระหว่างปุ่ม */
@@ -190,31 +205,150 @@ input.form, textarea{
     font-size: 16px;
 }
 
-body {
-    border: none;
-    outline: none;
-}
 
 table{;
     width: 100%;
-    border-collapse: collapse;
+    font-size: 18px;
+    border-collapse: collapse;//รวมเส้นขอบของตาราง
 }
-th,tr,td{
 
-    border: 2px solid black;
+th{  
+    border: 3px solid white;
     padding: 10px;
     text-align: center;
     word-wrap: break-word;//ข้อความที่เกินจะขึ้นบรรทัดใหม่
 }
 
+tr,td{
+    border: 3px solid black;
+    background-color: rgba(232, 232, 232,0); /* สีพื้นหลังที่มีความโปร่งใส */
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word;//ข้อความที่เกินจะขึ้นบรรทัดใหม่
+}
+
+
+
 .background{
     color: white;
     background-color: rgba(0, 0, 0, 1); /* สีพื้นหลังที่มีความโปร่งใส */
 }
+
+
+
 .background2{
-    color: black;
-    background-color: rgb(248, 235, 218); /* สีพื้นหลังที่มีความโปร่งใส */
+    background-color:#f9f5e0;
+    
+}
+
+.background2:hover {
+    background-color:#fcef64; /* สีพื้นหลังที่มีความโปร่งใส */
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
+    background: linear-gradient(135deg,rgb(68, 97, 150), #2a5298);
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3),
+                -4px -4px 10px rgba(255, 255, 255, 0.1);
 }
 
 
 
+.buttonB {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttonB:hover {
+    padding: 20px 40px;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.buttonB:active {
+    transform: scale(0.95);
+}
+
+
+.buttonA {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff930f, #fff95b);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttonA:hover {
+    padding: 20px 40px;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #fff95b, #ff930f);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.buttonA:active {
+    transform: scale(0.95);
+}
+
+.headerC {
+    background: linear-gradient(to bottom, #4dc9e6, #210cae); /* ไล่สี น้ำเงินเข้ม-ฟ้า */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9); /* เพิ่มเงาให้ตัวอักษร */
+    border-bottom: 5px solid #ffcc00; /* เส้นขอบสีทอง */
+    border-radius: 10px; /* ทำให้ขอบมน */
+}
+
+.buttonC {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #392d69, #b57bee);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttonC:hover {
+    padding: 20px 40px;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #b57bee, #392d69);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.buttonC:active {
+    transform: scale(0.95);
+}

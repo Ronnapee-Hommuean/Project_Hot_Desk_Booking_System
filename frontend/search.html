@@ -6,12 +6,14 @@
     <title>Order Tracking System</title>
     <link rel="stylesheet" href="CSS.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
+    <link rel="icon" href="assets/img3.png" type="image/x-icon">
 </head>
 <body class="flex">
     <div class="headerB">
-        <a href="edit-delete.html"><button class="buttonUp">ไปแก้ไข</button></a>
-        <a href="booking.html"><button class="buttonUp">กลับ</button></a>
+        <a href="edit-delete.html"><button class="buttonA bx bxs-message-edit " style='color:#432371'></button></a>
+        <a href="booking.html"><button class="buttonB bx bxs-home"></button></a>
         <span>จองที่นั่งสำนักงาน </span>
     </div>
 
@@ -23,11 +25,11 @@
         <div class="display">
             <br>
             <div class="container flex">
-                <div class="header"><label >เช็ควันที่ถูกจอง</label></div>
-                    <div class="grid">
+                <div class="header title"><label >Search Date</label></div>
+                    
                         <input class="form" id="date" type="date" placeholder="กรุณากรอกรหัสสินค้าของคุณ"></input>
                         <button class="button" onclick="searchingData()">search</button>
-                    </div>
+                    
                     
                
                 <div id="message" class="hidden"></div>

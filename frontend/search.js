@@ -24,9 +24,9 @@ const searchingData = async () => {
         message.classList.remove('hidden');
         informationDOM.classList.remove("hidden");
 
-        let htmlData = `
-                        <table class="background">
-                        <tr>
+        let htmlData = `<br>
+                        <table >
+                        <tr class="background">
                             <th>ID</th>
                             <th>firstname</th>
                             <th>lastname</th>
@@ -35,31 +35,19 @@ const searchingData = async () => {
                             <th>Date</th>
                         </tr>`;
 
-        if (response.data.length === 0) {
-            Swal.fire({
-                icon: "info",
-                title: "ไม่พบข้อมูล",
-                text: "ไม่มีข้อมูลสำหรับวันที่เลือก",
-                confirmButtonText: "ตกลง"
-            });
-            message.classList.add('danger');
-            message.classList.remove('succes');
-            message.innerHTML = 'ไม่เจอข้อมูลที่ค้นหา';
-            informationDOM.classList.add('hidden');
-            return;
-        }
+                       
 
         for (let i = 0; i < response.data.length; i++) {
-            let employee = response.data[i];
-            let date = new Date(employee.date).toLocaleDateString('en-GB');
-            let tableStatus = employee.status == 0 ? "ว่าง" : "ไม่ว่าง";
-            htmlData += `             <br>                    
+            let user = response.data[i];
+            let date = new Date(user.date).toLocaleDateString('en-GB');
+            let tableStatus = user.status == 0 ? "ว่าง" : "ไม่ว่าง";
+            htmlData += `                             
                                     <tr class="background2">
-                                        <td>${employee.employeeID}</td> 
-                                        <td>${employee.firstname}</td> 
-                                        <td>${employee.lastname}</td> 
+                                        <td>${user.employeeID}</td> 
+                                        <td>${user.firstname}</td> 
+                                        <td>${user.lastname}</td> 
                                         <td>${tableStatus}</td>
-                                        <td>${employee.noTable}</td>
+                                        <td>${user.noTable}</td>
                                         <td>${date}</td>
                                     </tr>`;
         }
@@ -67,25 +55,12 @@ const searchingData = async () => {
         htmlData += '</table>';
         informationDOM.innerHTML = htmlData;
 
-        // แจ้งเตือน SweetAlert ว่าดึงข้อมูลสำเร็จ
-        Swal.fire({
-            title: "ดึงข้อมูลสำเร็จ",
-            icon: "success",
-            text: `พบข้อมูลทั้งหมด ${response.data.length} รายการ`,
-            confirmButtonText: "ตกลง"
-        });
 
     } catch (error) {
-        message.classList.add('danger');
-        message.classList.remove('succes');
-        message.classList.remove('hidden');
-        informationDOM.classList.add('hidden');
-
-        let errorText = error.message || "เกิดข้อผิดพลาด ไม่สามารถดึงข้อมูลได้";
+      
         Swal.fire({
-            icon: "error",
-            title: "เกิดข้อผิดพลาด",
-            text: errorText,
+            icon: "info",
+            title: "ยังไม่มีการจอง",
             confirmButtonText: "ตกลง"
         });
     }
