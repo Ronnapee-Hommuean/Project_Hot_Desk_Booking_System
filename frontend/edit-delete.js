@@ -53,7 +53,7 @@ const loadData = async () => {
                 <a href = 'edit.html?id=${user.employeeID}'><button class ='button '>Edit</button></a>
             </td>
             <td>
-                <button class='delete button'  data-id = '${user.employeeID}'>Delete</button>
+                <button class='delete button2'  data-id = '${user.employeeID}'>Delete</button>
             </td>
         </tr>`
 
