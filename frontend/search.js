@@ -17,7 +17,7 @@ const searchingData = async () => {
         }
 
         const response = await axios.get(`${BASE_URL}/booking/date/${dateDOM.value}`);
-        console.log("response", response.data);
+        //console.log("response", response.data);
 
         if (response.data.length === 0) {
             Swal.fire({
@@ -39,7 +39,6 @@ const searchingData = async () => {
                             <th>Date</th>
                         </tr>`;
 
-                       
 
         for (let i = 0; i < response.data.length; i++) {
             let user = response.data[i];

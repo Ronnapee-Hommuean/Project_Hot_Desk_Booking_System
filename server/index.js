@@ -59,7 +59,7 @@ app.get('/booking/date/:date', async (req, res) => {
     try {
         let bookingDate = req.params.date; // รับค่าจากพารามิเตอร์ URL
         const [results] = await conn.query(
-            "SELECT employeeID, firstname, lastname, noTable, status, gmail, DATE_FORMAT(date, '%Y-%m-%d') as date FROM booking WHERE DATE(date) = ?",
+            "SELECT employeeID, firstname, lastname, noTable, status, DATE_FORMAT(date, '%Y-%m-%d') as date FROM booking WHERE DATE(date) = ?",
             [bookingDate]
         );
 
@@ -129,8 +129,6 @@ app.post('/booking', async (req, res) => {
             };
         }
 
-
-
         // บันทึกข้อมูลลงฐานข้อมูล
         const results = await conn.query('INSERT INTO booking SET ?', user);
         res.json({
@@ -138,8 +136,8 @@ app.post('/booking', async (req, res) => {
             data: results[0]
         });
     } catch (error) {
-        const errorMessage = error.message || 'เกิดข้อผิดพลาด';
-        const errors = error.errors || [];
+        const errorMessage = error.message ;
+        const errors = error.errors ;
         console.error('error message: ', error.message);
         res.status(400).json({
             message: errorMessage,
@@ -156,16 +154,28 @@ app.put('/booking/:employeeID',async (req, res) => {
       const results = await conn.query('UPDATE booking SET ? WHERE employeeID = ?', 
         [updateUser, id]
       );
+
+      if (updateUser.noTable < 1 || updateUser.noTable > 9) {
+        throw {
+            message: 'หมายเลขโต๊ะต้องอยู่ระหว่าง 1-9 เท่านั้น',
+            errors: ['กรุณาเลือกหมายเลขโต๊ะใหม่']
+        };
+    }
+
       res.json({
         message: 'Update user successfully',
-        data: results[0]
+        data: results[0],
+        employeeID: updateUser.noTable,
       });
+      
     } catch (error) {
-      console.error('error : ', error.message)
-      res.status(500).json({
-        message: 'something went wrong',
-        errorMessage: error.message
-      })
+        const errorMessage = error.message ;
+        const errors = error.errors ;
+        console.error('error message: ', error.message);
+        res.status(400).json({
+            message: errorMessage,
+            errors: errors
+        });
     }
   
     
