@@ -63,10 +63,6 @@ app.get('/booking/date/:date', async (req, res) => {
             [bookingDate]
         );
 
-        if (results.length === 0) {
-            throw { statusCode: 404, message: 'No bookings found for this date' };
-        }
-
         res.json(results);
     } catch (error) {
         console.error('Error:', error.message);

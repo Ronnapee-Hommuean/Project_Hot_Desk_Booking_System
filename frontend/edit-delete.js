@@ -7,7 +7,7 @@ window.onload = async () => {
 const loadData = async () => {
     //1. load user.js ทั้งหมด จาก api ที่เตรียมไว้
     const response = await axios.get(`${BASE_URL}/booking`);
-    console.log(response.data);
+    //console.log(response.data);
 
 
     const userDOM = document.getElementById('user');

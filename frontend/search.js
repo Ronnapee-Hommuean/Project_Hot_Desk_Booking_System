@@ -13,16 +13,20 @@ const searchingData = async () => {
                 text: "คุณต้องระบุวันที่ก่อนค้นหา",
                 confirmButtonText: "ตกลง"
             });
-            return; // ออกจากฟังก์ชันเลย
+            return; 
         }
 
         const response = await axios.get(`${BASE_URL}/booking/date/${dateDOM.value}`);
         console.log("response", response.data);
 
-        message.classList.add('succes');
-        message.classList.remove('danger');
-        message.classList.remove('hidden');
-        informationDOM.classList.remove("hidden");
+        if (response.data.length === 0) {
+            Swal.fire({
+                icon: "info",
+                title: "ยังไม่มีการจอง",
+                confirmButtonText: "ตกลง"
+            });
+            return;
+        }
 
         let htmlData = `<br>
                         <table >
@@ -57,10 +61,10 @@ const searchingData = async () => {
 
 
     } catch (error) {
-      
+       
         Swal.fire({
             icon: "info",
-            title: "ยังไม่มีการจอง",
+            title: "ไม่พบข้อมูล",
             confirmButtonText: "ตกลง"
         });
     }
