@@ -344,6 +344,53 @@ tr,td{
     opacity: 1;
 }
 
+.buttonE {
+    border-radius: 8px;
+    padding: 10px 30px;
+    background: orange;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: all 0.5s linear;
+    color: black;
+    float: right;
+}
+
+.buttonE:hover {
+    background: red;
+    border-radius: 8px;
+    scale: 1.1;
+}
+
+.buttonE::after{
+    content: '';
+    background: radial-gradient(red,orange);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    border-radius: 8px;
+    inset: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;    
+}
+
+.buttonE:hover::after {
+    width: 100%;
+}
+
+
+.buttonEr::after {
+    transition: all 0.5s linear;
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.buttonEr:hover::after {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 
 .icon {
     width: 40px;
@@ -360,6 +407,25 @@ tr,td{
     height: auto;     /* คงอัตราส่วนเดิม */
     display: block;
     margin: 0 auto;   /* จัดให้อยู่ตรงกลาง */
+}
+
+.test{
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.justify{
+    font-size: 20px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between; /* จัดให้อยู่กลาง */
+    gap: 10px; /* ระยะห่างระหว่างปุ่มกับข้อความ */
 }
 
 

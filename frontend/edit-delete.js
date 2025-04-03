@@ -60,7 +60,8 @@ const loadData = async () => {
     }
     htmlData += '</table>'
     userDOM.innerHTML = htmlData;
-
+    
+    
 
     //3. ลบ user
     const deleteDOMs = document.getElementsByClassName('delete')
@@ -81,3 +82,4 @@ const loadData = async () => {
 
 
 }
+

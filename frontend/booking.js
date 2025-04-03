@@ -28,7 +28,11 @@ window.onload = async () => {
             gmailDOM.value = user.gmail
             noTableDOM.value = user.noTable
             dateDOM.value = date
-    
+            
+            loadDOM = document.getElementById('loadData')
+            loadDOM.addEventListener('click', () => {
+        pdf(user)
+        })
            
         } catch (error) {
             console.log('error', error);
@@ -52,7 +56,7 @@ const submitData = async () => {
             gmail: gmailDOM.value,
             noTable: noTableDOM.value,
             date: dateDOM.value,
-            status: 1 // ✅ กำหนดให้สถานะเป็น 1 (จองแล้ว)
+            status: 1 //  กำหนดให้สถานะเป็น 1 (จองแล้ว)
         };
 
         console.log("submitData", userData);
@@ -77,8 +81,6 @@ const submitData = async () => {
         }
         
 
-        
-
         messageDOM.innerText = message;
         messageDOM.className = 'message success';
 
@@ -93,7 +95,7 @@ const submitData = async () => {
 
         let errorText = error.message + '\n' + error.errors.join('\n');
         
-        // ✅ แสดง Pop-up แจ้งเตือนข้อผิดพลาด
+        // แสดง Pop-up แจ้งเตือนข้อผิดพลาด
         Swal.fire({
             icon: "error",
             title: errorText,
@@ -101,5 +103,56 @@ const submitData = async () => {
 
     
     }
+
+}
+
+const pdf = (user) => {
+    let tableStatus = user.status == 0 ? "ว่าง" : "จองแล้ว";
+    let htmlload = `<div>
+    <h1 style="text-align:center;">รายละเอียดการจอง</h1>
+    <div class='test'>
+        <div class="justify">
+            <span>ชื่อ</span>
+            <span>${user.firstname}</span>
+        </div>
+        <div class="justify">
+            <span>นามสกุล</span>
+            <span>${user.lastname}</span>
+        </div>
+        <div class="justify">
+            <span>อีเมล</span>
+            <span>${user.gmail}</span>
+        </div>
+        <div class="justify">
+            <span>หมายเลขโต๊ะ</span>
+            <span>${user.noTable}</span>
+        </div>
+        <div class="justify">
+            <span>วันที่จอง</span>
+            <span>${user.date}</span>
+        </div>
+        <div class="justify">
+            <span>สถานะ</span>
+            <span>${tableStatus}</span>
+        </div>
+    </div>
+    </div>`
+
+
+    const options = {
+        margin: 1, // Margin around the content
+        filename: 'order-details.pdf', // Name of the PDF file
+        image: { type: 'jpeg', quality: 1 }, // High-quality images
+        html2canvas: { scale: 2, useCORS: true }, // Improve rendering quality
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // Set to landscape
+    }
+    
+    html2pdf().set(options).from(htmlload).toPdf()
+    .get('pdf')
+    .then((pdf) => {
+        const pdfBlob = pdf.output('blob');
+        const pdfUrl = URL.createObjectURL(pdfBlob);
+        window.open(pdfUrl);
+    })
 
 }

@@ -109,6 +109,16 @@ app.post('/booking', async (req, res) => {
                 errors: errors
             };
         }
+        if (user.gmail) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(user.gmail)) {
+                throw {
+                    message: 'กรุณากรอกอีเมลให้ถูกต้อง',
+                    errors: ['กรุณากรอกอีเมลใหม่']
+                };
+            }
+
+        }
         // ตรวจสอบว่า noTable อยู่ระหว่าง 1-9 หรือไม่
         if (user.noTable < 1 || user.noTable > 9) {
             throw {
@@ -127,7 +137,7 @@ app.post('/booking', async (req, res) => {
                 message: 'โต๊ะนี้ถูกจองแล้วในวันนี้',
                 errors: ['กรุณาเลือกโต๊ะหรือวันอื่น']
             };
-        }
+        };
 
         // บันทึกข้อมูลลงฐานข้อมูล
         const results = await conn.query('INSERT INTO booking SET ?', user);
@@ -160,7 +170,18 @@ app.put('/booking/:employeeID',async (req, res) => {
             message: 'หมายเลขโต๊ะต้องอยู่ระหว่าง 1-9 เท่านั้น',
             errors: ['กรุณาเลือกหมายเลขโต๊ะใหม่']
         };
-    }
+        }
+
+        if (updateUser.gmail) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(updateUser.gmail)) {
+                throw {
+                    message: 'กรุณากรอกอีเมลให้ถูกต้อง',
+                    errors: ['กรุณากรอกอีเมลใหม่']
+                };
+            }
+
+        }
 
       res.json({
         message: 'Update user successfully',
@@ -185,7 +206,7 @@ app.put('/booking/:employeeID',async (req, res) => {
 app.delete('/booking/:employeeID', async(req, res) => {
     try {
       let id = req.params.employeeID;
-      const results = await conn.query('DELETE FROM booking WHERE employeeID= ?', parseInt(id));/*parseIntเช็คว่าเป็นตัวเลข*/ 
+      const results = await conn.query('DELETE FROM booking WHERE employeeID= ?', parseInt(id));//parseIntเช็คว่าเป็นตัวเลข 
       res.json({
         message: 'Delete user successfully',
         data: results[0]
